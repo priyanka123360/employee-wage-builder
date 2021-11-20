@@ -30,9 +30,9 @@ public class EmployeeWage implements EmployeeService {
 	
 
 	private int computeEmpWage(CompanyEmployeeWage companyEmpWage) {
-		// variables
+		
 		int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
-		// Computation
+		
 		while (totalEmpHrs <= companyEmpWage.getMaxHoursPerMonth()
 				&& totalWorkingDays < companyEmpWage.getNumOfWorkingDays()) {
 			totalWorkingDays++;
@@ -53,6 +53,7 @@ public class EmployeeWage implements EmployeeService {
 		}
 		return totalEmpHrs * companyEmpWage.getEmpRatePerHour();
 	}
+
 	public static void main(String[] args) {
 		EmployeeWage employeeWage = new EmployeeWage();
 		employeeWage.addCompanyEmpWage("BigBazar", 30, 50, 100);
