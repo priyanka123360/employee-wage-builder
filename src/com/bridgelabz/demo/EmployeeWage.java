@@ -1,6 +1,7 @@
 package com.bridgelabz.demo;
 
-public class EmployeeWage {
+
+public class EmployeeWage implements EmployeeService {
 	public static final int IS_PART_TIME = 1;
 	public static final int IS_FULL_TIME = 2;
 
@@ -11,7 +12,7 @@ public class EmployeeWage {
 		companyEmpWageArray = new CompanyEmployeeWage[5];
 	}
 
-	private void addCompanyEmpWage(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth) {
+	public void addCompanyEmpWage(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth) {
 		companyEmpWageArray[numOfCompany] = new CompanyEmployeeWage(company, empRatePerHour, numOfWorkingDays,
 				maxHoursPerMonth);
 		numOfCompany++;
@@ -25,9 +26,9 @@ public class EmployeeWage {
 	}
 
 	private int computeEmpWage(CompanyEmployeeWage companyEmpWage) {
-		// variables
+		
 		int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
-		// Computation
+		
 		while (totalEmpHrs <= companyEmpWage.getMaxHoursPerMonth()
 				&& totalWorkingDays < companyEmpWage.getNumOfWorkingDays()) {
 			totalWorkingDays++;
@@ -48,7 +49,6 @@ public class EmployeeWage {
 		}
 		return totalEmpHrs * companyEmpWage.getEmpRatePerHour();
 	}
-
 	public static void main(String[] args) {
 		EmployeeWage employeeWage = new EmployeeWage();
 		employeeWage.addCompanyEmpWage("BigBazar", 30, 50, 100);
